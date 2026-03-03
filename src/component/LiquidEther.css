@@ -1,0 +1,11 @@
+.liquid-ether-container {
+  position: fixed;       /* makes it stick to viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;          /* full viewport width */
+  height: 100vh;         /* full viewport height */
+  overflow: hidden;
+  touch-action: none;
+  background-color: black;
+border: 20px;
+}
