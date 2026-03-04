@@ -1,8 +1,12 @@
 import React from 'react'
+import Apifetch from '../assets/apis/Apifetch'
 
-function Dashboard(){
-    return <h1>Dashbord</h1>
+const Dashboard = () => {
+  return (
+    <div>
+      <Apifetch/>
+    </div>
+  )
 }
- 
 
 export default Dashboard
