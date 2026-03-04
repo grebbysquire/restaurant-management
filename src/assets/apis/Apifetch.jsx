@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from "react-router-dom";
 
 const Apifetch = () => {
   const [data, setData] = useState([]);
+  const navigate=useNavigate();
 
   const getData = async () => {
     try {
@@ -12,7 +14,7 @@ const Apifetch = () => {
         "/api/Restaurant"
       );
       console.log("good:", response.data);
-      setData(response.data);  // check this line (explained below)
+      setData(response.data);  
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -20,31 +22,29 @@ const Apifetch = () => {
 
   useEffect(() => {
     getData();
+   
   },[])
   return (
-    <div>
+    <div style={{display:'flex',paddingTop:"10"}}>
        <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',gap:'20px'}}>
-      {data.map((data,index)=>(
-         <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={data.thumbnail}/>
-      <Card.Body>
-        <Card.Title style={{display:'block',margin:'auto'}}>{data. restaurantName}</Card.Title>
-        <Card.Text style={{overflow:'auto', maxHeight:'50px'}}>{data.address}
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Card.Text>
-          {data.category}
-        </Card.Text>
-        <Card.Text>{data.price}</Card.Text>
-        <Card.Text>{data.price}</Card.Text>
-        <div>        
-          <Button variant="primary" style={{display:'block',margin:'auto'}}>Go somewhere</Button>
-</div>
-      </Card.Body>
-    </Card>
+      {data.map((item, index) => (
+  <Card key={index} style={{ width: '18rem' }}>
+    <Card.Img variant="top" src={item.thumbnail}/>
+    <Card.Body>
+      <Card.Title>{item.restaurantName}</Card.Title>
+       <Card.Text>{item.parkingLot}</Card.Text>
+      <Card.Text>{item.address}</Card.Text>
+     
+      <Card.Text>{item.type}</Card.Text>
+      
+      <Button  onClick={()=>navigate("/booking")}
+      variant="primary">Book Seat</Button>
+    </Card.Body>
+  </Card>
+))}
+
   
-      ))}
+    
     </div>
     </div>
   )

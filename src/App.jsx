@@ -7,8 +7,11 @@ import Dashboard from './pages/Dashboard'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LiquidEther from './component/LiquidEther'
 import Naavbar from './component/Naavbar'
-import Sidebar from './components/Sidebar'
 import Apifetch from './assets/apis/Apifetch'
+import bgImage from '../src/components/images/Restaurent.jpg'
+import Booking from './pages/Booking'
+
+
 
 
 const App = () => {
@@ -18,9 +21,8 @@ const App = () => {
       <Naavbar />
 
 
-      <div style={{ width: '100%', height: 600, position: 'relative', display: 'flex', flex: "wrap" }}>
-        {/* <LiquidEther
-    colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
+       
+    {/* colors={[ '#5227FF', '#FF9FFC', '#B19EEF' ]}
     mouseForce={20}
     cursorSize={100}
     isViscous
@@ -39,9 +41,9 @@ const App = () => {
     color1="#FF9FFC"
     color2="#B19EEF"
     
-/> */}
+/> */} 
 
-      </div>
+      
 
 
 
@@ -51,7 +53,7 @@ const App = () => {
           <Route path='/homepage' element={<LiquidEther />} />
           <Route path='/login' element={<Addlog />} />
           <Route
-            path="/Dashbord"
+            path="/Dashboard"
             element={
               <>
                 <Dashboard />
@@ -62,6 +64,9 @@ const App = () => {
           <Route path='/order' element={<Orderpage />} />
           <Route path='/adminpanel' element={<Adminpanel />} />
           <Route path="data'element" element={<Apifetch />} />
+          <Route path='/booking'element={<Booking/>}/>
+           <Route path="/" element={<Apifetch />} />
+        <Route path="/booking/:id" element={<Booking />} />
         </Routes>
       </BrowserRouter>
     </div>

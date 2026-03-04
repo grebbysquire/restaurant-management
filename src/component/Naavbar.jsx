@@ -1,7 +1,8 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import Navbar from 'react-bootstrap/Navbar';import { FaHome, FaInfoCircle, FaEnvelope } from 'react-icons/fa';
+
 
 
 const Naavbar = () => {
@@ -14,7 +15,9 @@ const Naavbar = () => {
       <Nav className="mx-auto">
         <Nav.Link href="#home"></Nav.Link>
         <Nav.Link href="#features">
-          <h1>welcome to restaurent</h1>
+          <div>
+          <h1>welcome to Restaurants hub</h1>
+          </div>
         </Nav.Link>
         <Nav.Link href="#pricing"></Nav.Link>
       </Nav>
