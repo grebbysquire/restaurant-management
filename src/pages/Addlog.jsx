@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
 import bgImage from "../components/images/Restaurent.jpg";
-
-
 
 const Addlog = () => {
   const [username, setUsername] = useState("");
@@ -21,51 +18,101 @@ const Addlog = () => {
   }
 
   return (
-   <div //bacckground 
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",      
-  backgroundImage :`url(${bgImage})`,
-  width:"100%"
-  
-     
-  }}
->
-  <div //login box 
-    style={{
-      textAlign: "center",
-      background: "grey",
-      padding: "30px",
-      borderRadius: "10px",
-      width: "300px"
 
-    }}
-  >
-    <h2>Login</h2>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",  
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        width: "100%"
+      }}
+    >
 
-    <form onSubmit={handlelogin}>     
-      <input
-        type="text"
-        placeholder="username"
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <br /><br />
-      <input
-        type="password"
-        placeholder="password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <br /><br />
-      <button type="submit">Login</button>
-    </form>
+      {/* Welcome text */}
+      <h1
+        style={{
+          color: "white",
+          marginBottom: "100px",
+          fontFamily:"ui-serif",
+          fontSize:70,
+          
 
-    <Form.Text muted>
-      Your password must be 8-20 characters long.
-    </Form.Text>
-  </div>
-</div>
+        }}
+      >
+        Welcome to Restaurant Hub
+      </h1>
+
+      {/* login box */}
+      <div
+        style={{
+          textAlign: "center",
+          background: "#ffffff",
+          padding: "40px",
+          borderRadius: "12px",
+          width: "320px",
+          boxShadow: "0 8px 20px rgba(0,0,0,0.3)"
+        }}
+      >
+
+        <h2 style={{ marginBottom: "20px" }}>Login</h2>
+
+        <form onSubmit={handlelogin}>
+
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => setUsername(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginBottom: "15px",
+              borderRadius: "6px",
+              border: "1px solid #ccc"
+            }}
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "10px",
+              marginBottom: "20px",
+              borderRadius: "6px",
+              border: "1px solid #ccc"
+            }}
+          />
+
+          <button
+            type="submit"
+            style={{
+              width: "100%",
+              padding: "10px",
+              borderRadius: "6px",
+              border: "none",
+              background: "#2563eb",
+              color: "white",
+              fontWeight: "bold",
+              cursor: "pointer"
+            }}
+          >
+            Login
+          </button>
+
+        </form>
+
+        <p style={{ marginTop: "15px", fontSize: "13px", color: "gray" }}>
+          Password must be 8–20 characters.
+        </p>
+
+      </div>
+    </div>
   );
 };
 

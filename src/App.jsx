@@ -10,6 +10,7 @@ import Naavbar from './component/Naavbar'
 import Apifetch from './assets/apis/Apifetch'
 
 import Booking from './pages/Booking'
+import { Navbar } from 'react-bootstrap'
 
 
 
@@ -18,7 +19,9 @@ const App = () => {
   return (
 
     <div>
-      <Naavbar />
+     
+      
+
 
 
 
@@ -50,6 +53,7 @@ const App = () => {
 
       <BrowserRouter>
         <Routes>
+          <Route path='navbar'element={<Naavbar/>}/>
           <Route path='/homepage' element={<LiquidEther />} />
           <Route path='/login' element={<Addlog />} />
           <Route

@@ -24,42 +24,68 @@ const Apifetch = () => {
   }, [])
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '20px', marginTop: "20px" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexWrap: "wrap",
+        gap: "20px",
+        background: "#0f172a",
+        padding: "30px",
+        minHeight: "100vh"
+      }}
+    >
 
       {data.map((item) => (
 
-        <Card key={item.restaurantID} style={{ width: '18rem' }}>
+       <div style={{margin:"auto"}}>
+         <Card key={item.restaurantID} style={{ width: "18rem", height: "100%" }}>
+  <Card.Body
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      height: "100%"
+    }}
+  >
 
-          <Card.Body>
+    <Card.Title
+      style={{
+        textAlign: "center",
+        fontFamily: "Poppins, sans-serif",
+        fontWeight: 700,
+        
+      }}
+    >
+      {item.restaurantName}
+    </Card.Title>
 
-            <Card.Title>{item.restaurantName}</Card.Title>
+    <Card.Text style={{ fontFamily:"system-ui", fontWeight: 500,fontSize:20 }}>
+      Address: {item.address}
+    </Card.Text>
 
-            <Card.Text>
-              Address: {item.address}
-            </Card.Text>
+    <Card.Text style={{ fontFamily: "-apple-system", fontWeight: 600,fontSize:25   }}>
+      Type: {item.type}
+    </Card.Text>
 
-            <Card.Text>
-              Type: {item.type}
-            </Card.Text>
+    <Card.Text style={{margin:"auto"}}>
+      Parking: {item.parkingLot ? "Available" : "Not Available"}
+    </Card.Text>
 
-            <Card.Text>
-              Parking: {item.parkingLot ? "Available" : "Not Available"}
-            </Card.Text>
+    <Button
+      style={{ marginTop: "40px" }}
+      variant="primary"
+      onClick={() => navigate(`/booking/${item.restaurantID}`)}
+    >
+      Book Seat
+    </Button>
 
-            <Button
-              variant="primary"
-              onClick={() => navigate(`/booking/${item.restaurantID}`)}
-            >
-              Book Seat
-            </Button>
+  </Card.Body>
+</Card>
+</div>
+      ))
+      }
 
-          </Card.Body>
-
-        </Card>
-
-      ))}
-
-    </div>
+    </div >
   )
 }
 
