@@ -18,99 +18,112 @@ const Addlog = () => {
   }
 
   return (
+    <div style={{ position: "relative", height: "100vh", width: "100%" }}>
 
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",  
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        width: "100%"
-      }}
-    >
-
-      {/* Welcome text */}
-      <h1
-        style={{
-          color: "white",
-          marginBottom: "100px",
-          fontFamily:"ui-serif",
-          fontSize:70,
-          
-
-        }}
-      >
-        Welcome to Restaurant Hub
-      </h1>
-
-      {/* login box */}
+      {/* Blurred Background */}
       <div
         style={{
-          textAlign: "center",
-          background: "#ffffff",
-          padding: "40px",
-          borderRadius: "12px",
-          width: "320px",
-          boxShadow: "0 8px 20px rgba(0,0,0,0.3)"
+          position: "absolute",
+          top: 0,
+          left: 0,
+          height: "100%",
+          width: "100%",
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "blur(8px)",
+          transform: "scale(1.05)", // prevent edges from being cut
+          zIndex: -1
+        }}
+      />
+
+      {/* Content */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
         }}
       >
+        {/* Welcome text */}
+        <h1
+          style={{
+            color: "white",
+            marginBottom: "100px",
+            fontFamily:"ui-serif",
+            fontSize:70,
+          }}
+        >
+          Welcome to Restaurant Hub
+        </h1>
 
-        <h2 style={{ marginBottom: "20px" }}>Login</h2>
+        {/* login box */}
+        <div
+          style={{
+            textAlign: "center",
+            background: "#ffffff",
+            padding: "40px",
+            borderRadius: "12px",
+            width: "320px",
+            boxShadow: "0 8px 20px rgba(0,0,0,0.3)"
+          }}
+        >
 
-        <form onSubmit={handlelogin}>
+          <h2 style={{ marginBottom: "20px" }}>Login</h2>
 
-          <input
-            type="text"
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              marginBottom: "15px",
-              borderRadius: "6px",
-              border: "1px solid #ccc"
-            }}
-          />
+          <form onSubmit={handlelogin}>
 
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-            style={{
-              width: "100%",
-              padding: "10px",
-              marginBottom: "20px",
-              borderRadius: "6px",
-              border: "1px solid #ccc"
-            }}
-          />
+            <input
+              type="text"
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "15px",
+                borderRadius: "6px",
+                border: "1px solid #ccc"
+              }}
+            />
 
-          <button
-            type="submit"
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "6px",
-              border: "none",
-              background: "#2563eb",
-              color: "white",
-              fontWeight: "bold",
-              cursor: "pointer"
-            }}
-          >
-            Login
-          </button>
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              style={{
+                width: "100%",
+                padding: "10px",
+                marginBottom: "20px",
+                borderRadius: "6px",
+                border: "1px solid #ccc"
+              }}
+            />
 
-        </form>
+            <button
+              type="submit"
+              style={{
+                width: "100%",
+                padding: "10px",
+                borderRadius: "6px",
+                border: "none",
+                background: "#2563eb",
+                color: "white",
+                fontWeight: "bold",
+                cursor: "pointer"
+              }}
+            >
+              Login
+            </button>
 
-        <p style={{ marginTop: "15px", fontSize: "13px", color: "gray" }}>
-          Password must be 8–20 characters.
-        </p>
+          </form>
 
+          <p style={{ marginTop: "15px", fontSize: "13px", color: "gray" }}>
+            Password must be 8–20 characters.
+          </p>
+
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import Naavbar from './component/Naavbar'
 import Apifetch from './assets/apis/Apifetch'
 
 import Booking from './pages/Booking'
-import { Navbar } from 'react-bootstrap'
+
 
 
 

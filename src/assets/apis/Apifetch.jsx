@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { useNavigate } from "react-router-dom"
 
+import "./Apifetch.css";
+
 const Apifetch = () => {
 
   const [data, setData] = useState([])
@@ -23,69 +25,66 @@ const Apifetch = () => {
     getData()
   }, [])
 
+  const openMap = (name, address) => {
+    const query = `${name} ${address}`;
+    const mapUrl = `https://www.google.com/maps/search/${encodeURIComponent(query)}`;
+    window.open(mapUrl, "_blank");
+  };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        flexWrap: "wrap",
-        gap: "20px",
-        background: "#0f172a",
-        padding: "30px",
-        minHeight: "100vh"
-      }}
-    >
+    <div className="background cardgrid">
+
+      
 
       {data.map((item) => (
 
-       <div style={{margin:"auto"}}>
-         <Card key={item.restaurantID} style={{ width: "18rem", height: "100%" }}>
-  <Card.Body
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      height: "100%"
-    }}
-  >
+        <div className="cardcontainer" key={item.restaurantID}>
 
-    <Card.Title
-      style={{
-        textAlign: "center",
-        fontFamily: "Poppins, sans-serif",
-        fontWeight: 700,
-        
-      }}
-    >
-      {item.restaurantName}
-    </Card.Title>
+          <Card style={{ width: "18rem", height: "100%" }}>
 
-    <Card.Text style={{ fontFamily:"system-ui", fontWeight: 500,fontSize:20 }}>
-      Address: {item.address}
-    </Card.Text>
+            <Card.Body className="cardbody-style">
 
-    <Card.Text style={{ fontFamily: "-apple-system", fontWeight: 600,fontSize:25   }}>
-      Type: {item.type}
-    </Card.Text>
+              <Card.Title className="cardtitle-style">
+                {item.restaurantName}
+              </Card.Title>
 
-    <Card.Text style={{margin:"auto"}}>
-      Parking: {item.parkingLot ? "Available" : "Not Available"}
-    </Card.Text>
+              <Card.Text className="addresstext">
+                Address: {item.address}
+              </Card.Text>
 
-    <Button
-      style={{ marginTop: "40px" }}
-      variant="primary"
-      onClick={() => navigate(`/booking/${item.restaurantID}`)}
-    >
-      Book Seat
-    </Button>
+              <Card.Text className="typetext">
+                Type: {item.type}
+              </Card.Text>
 
-  </Card.Body>
-</Card>
-</div>
-      ))
-      }
+              <Card.Text className="parkingtext">
+                Parking: {item.parkingLot ? "Available" : "Not Available"}
+              </Card.Text>
 
-    </div >
+              <Button
+                className="bookbutton"
+                variant="primary"
+                onClick={() => navigate(`/booking/${item.restaurantID}`)}
+              >
+                Book Seat
+              </Button>
+
+              <Button
+                style={{ marginTop: "3px" }}
+                className="mapbutton"
+                onClick={() => openMap(item.restaurantName, item.address)}
+              >
+                View Location
+              </Button>
+
+            </Card.Body>
+
+          </Card>
+
+        </div>
+
+      ))}
+
+    </div>
   )
 }
 

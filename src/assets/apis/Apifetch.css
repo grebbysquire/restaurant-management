@@ -1,0 +1,173 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Page Background */
+.background{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:30px;
+  padding:40px;
+  min-height:100vh;
+
+  background: linear-gradient(135deg,#1f2937,#020617);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Card */
+.cardcontainer .card{
+ width:100%;
+max-width:420px;
+
+border-radius:22px;
+
+border:1px solid rgba(255,255,255,0.15);
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.5);
+
+transition:.4s;
+
+color:white;
+
+  box-shadow:
+  8px 8px 18px rgba(0,0,0,0.25),
+  -8px -8px 18px rgba(255,255,255,0.6);
+
+  transition: all .35s ease;
+}
+
+/* 3D Hover Lift */
+.cardcontainer .card:hover{
+  transform: translateY(-10px) scale(1.05); /* scale reduced for mobile */
+  box-shadow:
+  15px 15px 30px rgba(0,0,0,0.35),
+  -10px -10px 25px rgba(255,255,255,.7);
+}
+
+/* Card Body */
+.cardbody-style{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  padding:22px;
+}
+
+/* Restaurant Name */
+.cardtitle-style{
+  text-align:center;
+  font-size:26px;
+  font-weight:700;
+  color:#092057;
+  margin-bottom:15px;
+  letter-spacing:.5px;
+}
+
+/* Address */
+.address-text{
+  font-size:17px;
+  font-weight:500;
+  color:white;
+  margin-bottom:8px;
+}
+
+/* Restaurant Type */
+.typetext{
+  font-size:19px;
+  font-weight:600;
+  color:#1e293b;
+  margin-bottom:6px;
+}
+
+/* Parking */
+.parkingtext{
+  font-size:15px;
+  font-weight:500;
+  color:#64748b;
+  margin-top:4px;
+}
+
+/* Book Button */
+.bookbutton{
+  margin-top:auto;
+  padding:12px;
+
+  font-size:16px;
+  font-weight:600;
+
+  border:none;
+  border-radius:12px;
+
+  color:white;
+
+  background: linear-gradient(135deg,#6366f1,#8b5cf6);
+
+  box-shadow:
+  0 6px 15px rgba(99,102,241,.5);
+
+  transition: all .25s ease;
+}
+
+/* Hover Effect */
+.bookbutton:hover{
+  background: linear-gradient(135deg,#4f46e5,#7c3aed);
+  transform: translateY(-3px);
+  box-shadow:
+  0 12px 25px rgba(99,102,241,.7);
+}
+
+/* iPhone Press Effect */
+.bookbutton:active{
+  transform: scale(.96);
+  box-shadow:
+  inset 3px 3px 8px rgba(0,0,0,.3),
+  inset -3px -3px 8px rgba(255,255,255,.3);
+}
+
+/* Responsive Adjustments */
+@media(max-width:768px){
+  .cardcontainer .card{
+    width: 90%;  /* take most of screen width */
+  }
+
+  .cardtitle-style{
+    font-size:24px;
+  }
+
+  .address-text,
+  .typetext,
+  .parkingtext{
+    font-size:15px;
+  }
+
+  .bookbutton{
+    font-size:15px;
+    padding:10px;
+  }
+}
+
+@media(max-width:480px){
+  .cardcontainer .card{
+    width: 95%;
+    padding: 15px;
+  }
+
+  .cardtitle-style{
+    font-size:22px;
+  }
+
+  .address-text,
+  .typetext,
+  .parkingtext{
+    font-size:14px;
+  }
+
+  .bookbutton{
+    font-size:14px;
+    padding:8px;
+  }
+}
